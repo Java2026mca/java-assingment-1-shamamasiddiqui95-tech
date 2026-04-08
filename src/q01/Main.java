@@ -1,41 +1,50 @@
-package.q01
 import java.util.*;
+
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
- // Upper part (including middle line)
+
+       
         for (int i = 1; i <= n; i++) {
-            // Print leading spaces
+            
             for (int j = 1; j <= n - i; j++) {
                 System.out.print(" ");
             }
- // Print stars and inner spaces
-            for (int j = 1; j <= 2 * i - 1; j++) {
-                if (j == 1 || j == 2 * i - 1) {
-                    System.out.print("*");
-                } else {
+
+           
+            System.out.print("*");
+
+            
+            if (i > 1) {
+                for (int j = 1; j <= 2 * i - 3; j++) {
                     System.out.print(" ");
                 }
+                System.out.print("*");
             }
-          System.out.println();
+
+            System.out.println();
         }
-// Lower part
+
+      
         for (int i = n - 1; i >= 1; i--) {
-            // Print leading spaces
+           
             for (int j = 1; j <= n - i; j++) {
                 System.out.print(" ");
             }
-// Print stars and inner spaces
-            for (int j = 1; j <= 2 * i - 1; j++) {
-                if (j == 1 || j == 2 * i - 1) {
-                    System.out.print("*");
-                } else {
+
+          
+            System.out.print("*");
+
+            
+            if (i > 1) {
+                for (int j = 1; j <= 2 * i - 3; j++) {
                     System.out.print(" ");
                 }
+                System.out.print("*");
             }
 
             System.out.println();
         }
     }
-                }
+        }
