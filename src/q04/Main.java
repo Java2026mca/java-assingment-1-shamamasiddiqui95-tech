@@ -1,46 +1,49 @@
-package.q04
-    import java.util.*;
+import java.util.*;
 
 public class Main {
-    // Function to check prime
-    public static boolean isPrime(int num) {
-        if (num <= 1) return false;
-        for (int i = 2; i * i <= num; i++) {
-            if (num % i == 0) return false;
-        }
-        return true;
-    }
-// Function to check perfect number
-    public static boolean isPerfect(int num) {
-        if (num <= 1) return false;
-        int sum = 0;
-
-        for (int i = 1; i <= num / 2; i++) {
-            if (num % i == 0) {
-                sum += i;
-            }
-        }
-        return sum == num;
-    }
- public static void main(String[] args) {
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
 
-        for (int i = 0; i < n; i++) {
+        
+        if (!sc.hasNextInt()) return;
+        int count = sc.nextInt();
+
+        for (int i = 0; i < count; i++) {
             int num = sc.nextInt();
+            boolean isP = isPrime(num);
+            boolean isF = isPerfect(num);
 
-            boolean prime = isPrime(num);
-            boolean perfect = isPerfect(num);
-
-            if (prime && perfect) {
+            if (isP && isF) {
                 System.out.println("Both");
-            } else if (prime) {
+            } else if (isP) {
                 System.out.println("Prime");
-            } else if (perfect) {
+            } else if (isF) {
                 System.out.println("Perfect");
             } else {
                 System.out.println("Neither");
             }
         }
     }
-                                 }
+
+    private static boolean isPrime(int n) {
+        if (n <= 1) return false;
+        for (int i = 2; i * i <= n; i++) {
+            if (n % i == 0) return false;
+        }
+        return true;
+    }
+
+    private static boolean isPerfect(int n) {
+        if (n <= 1) return false;
+        int sum = 1;
+        for (int i = 2; i * i <= n; i++) {
+            if (n % i == 0) {
+                sum += i;
+                if (i * i != n) {
+                    sum += n / i;
+                }
+            }
+        }
+        return sum == n;
+    }
+}
