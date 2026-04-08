@@ -1,38 +1,39 @@
-package.q08
-    import java.util.*;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
+        sc.nextLine(); 
 
-        int[] stack = new int[n]; // max size = n operations
-        int top = -1;
+        int[] stack = new int[n]; 
+        int top = -1;             
 
         for (int i = 0; i < n; i++) {
-            String op = sc.next();
+            String command = sc.nextLine();
 
-            if (op.equals("PUSH")) {
-                int x = sc.nextInt();
+            if (command.startsWith("PUSH")) {
+                int x = Integer.parseInt(command.split(" ")[1]);
                 top++;
                 stack[top] = x;
-   } else if (op.equals("POP")) {
+            } else if (command.equals("POP")) {
                 if (top == -1) {
                     System.out.println("EMPTY");
                 } else {
                     System.out.println(stack[top]);
                     top--;
                 }
-  } else if (op.equals("PEEK")) {
+            } else if (command.equals("PEEK")) {
                 if (top == -1) {
                     System.out.println("EMPTY");
                 } else {
                     System.out.println(stack[top]);
                 }
-
-            } else if (op.equals("SIZE")) {
+            } else if (command.equals("SIZE")) {
                 System.out.println(top + 1);
             }
         }
+
+        sc.close();
     }
-            }
+                        }
