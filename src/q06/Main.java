@@ -1,4 +1,3 @@
-package.q06
 import java.util.*;
 
 public class Main {
@@ -10,12 +9,10 @@ public class Main {
 
         for (int i = 0; i < n; i++) {
             System.out.print(a);
-
-            // Avoid trailing space
-            if (i < n - 1) {
+            if (i != n - 1) {
                 System.out.print(" ");
-           }
- int next = a + b;
+            }
+            int next = a + b;
             a = b;
             b = next;
         }
