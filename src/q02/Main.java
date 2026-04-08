@@ -1,23 +1,24 @@
-package.q02
-    import java.util.*;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
+
         for (int i = 0; i < n; i++) {
-            int num = 1; // First value in every row is always 1
+            int val = 1;
 
             for (int j = 0; j <= i; j++) {
-                System.out.print(num);
-// Avoid trailing space
+                System.out.print(val);
+
                 if (j < i) {
                     System.out.print(" ");
                 }
-  // Calculate next value using formula
-                num = num * (i - j) / (j + 1);
+
+                val = val * (i - j) / (j + 1);
             }
+
             System.out.println();
         }
     }
-                             }
+}
